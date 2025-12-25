@@ -1,0 +1,1326 @@
+/* --- VARIABILI & COLORI --- */
+:root {
+    --bg-color: #F5EFED;
+    /* Crema */
+    --text-main: #611408;
+    /* Marrone */
+    --accent: #F0814A;
+    /* Arancione */
+
+    --font-display: 'Amatic SC', cursive;
+    --font-hand: 'Architects Daughter', cursive;
+    --font-clean: 'Montserrat', sans-serif;
+}
+
+/* --- NASCONDI SCROLLBAR --- */
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-clean);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* --- SISTEMA TEMI (CHIARO / SCURO) --- */
+
+/* TEMA SCURO (Arancione) - Default */
+.theme-dark {
+    background-color: var(--accent);
+    color: white;
+}
+
+.theme-dark p {
+    color: white;
+}
+
+.theme-dark h2 {
+    color: var(--text-main);
+}
+
+.theme-dark .hand-note {
+    color: var(--text-main);
+}
+
+/* TEMA CHIARO (Crema) */
+.theme-light {
+    background-color: var(--bg-color);
+    /* Sfondo Chiaro */
+    color: var(--text-main);
+    /* Testo Marrone */
+}
+
+.theme-light p {
+    color: var(--text-main);
+}
+
+/* Anche i paragrafi diventano marroni */
+.theme-light h2 {
+    color: var(--text-main);
+}
+
+.theme-light .hand-note {
+    color: var(--accent);
+}
+
+/* Nota: Cambiamo la nota in Arancione per contrasto! */
+
+/* --- LIVELLI (LAYERS) --- */
+
+/* LIVELLO 1: BASE (Crema) */
+.layer-cream {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* LIVELLO 2: IRIDE SFONDO (Arancione) */
+.layer-orange {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--accent);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    clip-path: circle(0% at 50% 90%);
+    pointer-events: none;
+}
+
+/* LIVELLO 3: CONTENUTO STORIA */
+.content-container {
+    position: absolute;
+    /* MODIFICA: Da 200vh a 150vh -> Arriva molto prima */
+    top: 150vh;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    /* background-color: var(--accent); */
+}
+
+/* LIVELLO 4: LOGO BIANCO (Sopra a tutto) */
+.logo-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    clip-path: circle(0% at 50% 90%);
+    pointer-events: none;
+}
+
+.story-content {
+    color: white;
+    padding-bottom: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* --- HEADER SINCRONIZZATI --- */
+.sync-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    transform-origin: top left;
+    will-change: transform, top, left;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.names-text {
+    font-family: var(--font-display);
+    font-size: 12vw;
+    line-height: 0.85;
+    white-space: nowrap;
+}
+
+.names-text,
+.separator {
+    transition: color 0.3s ease, margin-top 0.4s ease-in-out;
+    /* Uniamo le transizioni */
+}
+
+/* 2. Classe che forza il colore scuro (per sfondi chiari) */
+/* Quando applicata, il testo bianco diventa Arancione (come all'inizio) */
+.logo-dark-mode .names-text {
+    color: var(--accent) !important;
+}
+
+.logo-dark-mode .separator {
+    color: var(--text-main) !important;
+}
+
+.separator {
+    font-family: var(--font-hand);
+    font-size: 0.6em;
+    vertical-align: middle;
+    margin: 0 10px;
+    display: inline-block;
+    transform: translateY(-5px);
+    color: var(--text-main);
+}
+
+#header-cream .names-text {
+    color: var(--accent);
+}
+
+#header-orange .names-text {
+    color: white;
+}
+
+.date-subtitle {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #191716;
+    transition: opacity 0.2s;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+/* --- SIDE NAV --- */
+.side-nav {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.side-nav.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.side-nav ul::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: -1;
+}
+
+.side-nav li {
+    cursor: pointer;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.side-nav li.active .nav-dot {
+    width: 16px;
+    height: 16px;
+    background-color: var(--text-main);
+}
+
+.side-nav li.active::after {
+    content: '';
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border: 2px dashed white;
+    border-radius: 50%;
+    animation: spin 12s linear infinite;
+}
+
+.side-nav li::before {
+    content: attr(data-label);
+    position: absolute;
+    right: 45px;
+    color: white;
+    font-family: var(--font-clean);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    background-color: rgba(97, 20, 8, 0.9);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.side-nav li:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#side-nav.nav-dark-mode .nav-dot {
+    background-color: var(--text-main);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+    /* Piccolo bordo per stacco */
+}
+
+/* 2. Il pallino ATTIVO diventa Arancione */
+#side-nav.nav-dark-mode li.active .nav-dot {
+    background-color: var(--accent);
+}
+
+/* 3. Il cerchio rotante tratteggiato diventa Marrone */
+#side-nav.nav-dark-mode li.active::after {
+    border-color: var(--text-main);
+}
+
+/* 4. Le etichette (tooltip) rimangono leggibili */
+#side-nav.nav-dark-mode li::before {
+    background-color: var(--text-main);
+    /* Sfondo marrone */
+    color: white;
+    /* Testo bianco */
+}
+
+#side-nav.nav-dark-mode ul::before {
+    /* Usiamo un marrone semitrasparente per mantenere l'eleganza */
+    background-color: rgba(97, 20, 8, 0.18);
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- FRECCIA SCROLL --- */
+.scroll-cta {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.cta-circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 2s infinite;
+}
+
+.arrow-icon {
+    border: solid var(--text-main);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg) translateY(-2px);
+}
+
+/* --- BINARIO SCROLL --- */
+.scroll-track {
+    /* MODIFICA: Ridotto da 350vh a 250vh per bilanciare l'ingresso anticipato */
+    height: 250vh;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+
+/* --- ELEMENTI VISIVI --- */
+section {
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    margin: 0 auto;
+    scroll-snap-align: start;
+}
+
+/* Questa classe serve per centrare il contenuto dentro la sezione */
+.container-limit {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    /* Margine laterale di sicurezza */
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.grid-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    margin: 0;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.35;
+    /* Ridotta per interlinea più compatta */
+    color: white;
+    font-weight: 400;
+}
+
+.hand-note {
+    font-family: var(--font-hand);
+    color: var(--text-main);
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 15px;
+    transform: rotate(-2deg);
+}
+
+/* --- ANIMAZIONE SCRITTURA A MANO (.hand-note) --- */
+
+/* 1. Definizione dell'animazione (Keyframes) */
+@keyframes handwritingReveal {
+    0% {
+        /* All'inizio è completamente mascherato (ritagliato) a destra */
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+        /* Opzionale: un leggerissimo movimento per dare dinamismo */
+        transform: translateX(-5px);
+    }
+
+    100% {
+        /* Alla fine il ritaglio è 0 (completamente visibile) */
+        clip-path: inset(0 0% 0 0);
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 2. Stato iniziale della nota dentro un blocco animabile */
+.reveal-block .hand-note {
+    /* Necessario perché il clip-path funzioni bene sul testo */
+    display: inline-block;
+
+    /* Nascondiamo inizialmente */
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+
+    /* Preparazione per l'animazione (attende la classe .active del genitore) */
+    /* Usiamo 'forwards' per far rimanere il testo visibile alla fine */
+    animation-fill-mode: forwards;
+    /* Usiamo una curva 'ease-out' per un inizio veloce e una fine morbida */
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+/* 3. Attivazione quando il genitore (.reveal-block) diventa .active */
+.reveal-block.active .hand-note {
+    /* Nome animazione | Durata | Delay */
+    /* Durata 1.5s: abbastanza lenta per sembrare scritta */
+    animation-name: handwritingReveal;
+    animation-duration: 2.5s;
+
+    /* Delay importante: Aspettiamo 0.3s che il blocco inizi a salire 
+       prima di iniziare a scrivere, per un effetto a cascata elegante */
+    animation-delay: 0.3s;
+}
+
+.visual-box {
+    width: 100%;
+    height: 60vh;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 50;
+}
+
+.svg-map {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    overflow: visible;
+}
+
+#Monviso {
+    clip-path: inset(0 100% 0 0);
+}
+
+#Testo {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+    transform-box: fill-box;
+    transform-origin: bottom;
+    transform: scale(2.0);
+}
+
+#Testo.active {
+    opacity: 1;
+}
+
+#Linea path {
+    stroke: #ffffff;
+    stroke-width: 5px;
+    fill: none;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.05s linear;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#sec-intro {
+    /* Di base è 90vh, lo abbassiamo per far salire prima il Monviso */
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+    /* Opzionale: se vuoi ridurre anche il padding interno */
+    padding-bottom: 0;
+}
+
+/* --- RSVP FORM SECTION --- */
+.rsvp-section {
+    background-color: var(--accent);
+    /* Sfondo Arancione */
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    min-height: auto;
+    /* Non forziamo 90vh qui */
+}
+
+.rsvp-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Leggermente più chiaro dello sfondo */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    font-family: var(--font-hand);
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Stile Input (Coerente con tema chiaro: Sfondo Crema, Testo Marrone) */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--bg-color);
+    /* Crema */
+    color: var(--text-main);
+    /* Marrone */
+    font-family: var(--font-clean);
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: transform 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+}
+
+/* Opzioni Dieta */
+.diet-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.toggle-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.radio-options {
+    display: flex;
+    gap: 15px;
+    color: white;
+    font-family: var(--font-clean);
+}
+
+.radio-options input {
+    margin-right: 5px;
+    accent-color: var(--text-main);
+    /* Colore pallino radio */
+}
+
+/* Bottone */
+#btn-submit {
+    background-color: var(--text-main);
+    /* Marrone */
+    color: white;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s, background-color 0.2s;
+    width: 100%;
+}
+
+#btn-submit:hover {
+    transform: scale(1.05);
+    background-color: #4a0f06;
+}
+
+#form-message {
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 15px;
+    min-height: 30px;
+}
+
+/* --- ANIMAZIONI ENTRATA BLOCCHI (Reveal) --- */
+
+/* Stato Iniziale: Nascosto, spostato in basso, pronto a muoversi */
+.reveal-block {
+    opacity: 0;
+    transform: translateY(60px);
+    /* Parte 60px più in basso */
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Nota: la transizione è 'cubic-bezier' per un movimento più naturale ed elegante */
+}
+
+/* Stato Finale: Visibile, posizione originale */
+.reveal-block.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Utility per ritardare l'animazione (per effetto a cascata) */
+.delay-200 {
+    transition-delay: 0.2s;
+    /* Aspetta 200ms prima di partire */
+}
+
+/* Opzionale: Se vuoi che l'immagine abbia un bordo colorato come nel layout precedente */
+.theme-light .visual-box {
+    border: 3px solid var(--accent);
+    border-radius: 20px;
+    /* Arrotondiamo leggermente */
+    overflow: hidden;
+    /* Maschera l'immagine dentro i bordi */
+}
+
+/* --- LISTE PERSONALIZZATE (senza pallini standard) --- */
+ul.styled-list {
+    list-style: none;
+    /* Via i pallini brutti */
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+ul.styled-list li {
+    position: relative;
+    padding-left: 25px;
+    /* Spazio per il trattino */
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+ul.styled-list li::before {
+    content: '–';
+    /* Il trattino personalizzato */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+/* Link nello stile del testo */
+a.text-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+a.text-link:hover {
+    opacity: 0.8;
+}
+
+/* --- COORDINATE BANCARIE (STILE WEDDING) --- */
+
+/* Bottone di apertura: Elegante e minimale */
+.btn-wedding {
+    background-color: transparent;
+    border: 2px solid var(--text-main);
+    color: var(--text-main);
+    font-family: var(--font-display);
+    /* Amatic SC */
+    font-size: 1.8rem;
+    padding: 8px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-wedding:hover,
+.btn-wedding.active {
+    background-color: var(--text-main);
+    color: white;
+}
+
+/* Contenitore a soffietto */
+.bank-drawer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.6s ease, opacity 0.4s ease;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bank-drawer.visible {
+    max-height: 500px;
+    /* Spazio sufficiente per aprirsi */
+    opacity: 1;
+}
+
+/* Le "Card" dei dati: Semplici e pulite */
+.wedding-bank-card {
+    background-color: white;
+    border: 1px solid rgba(97, 20, 8, 0.1);
+    /* Marrone chiarissimo */
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Card evidenziata (Causale): Arancione */
+.wedding-bank-card.highlight {
+    background-color: var(--accent);
+    /* Arancione */
+    border: none;
+}
+
+/* --- STILE COORDINATE BANCARIE (CENTRATURA NUOVA) --- */
+
+.bank-full-row {
+    width: 100%;
+    margin-top: 50px;
+    /* Spazio abbondante sopra per separarlo dal testo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra orizzontalmente il bottone */
+    justify-content: center;
+}
+
+/* Modifica per centrare anche il contenitore che si apre */
+.bank-drawer.centered-drawer {
+    width: 100%;
+    max-width: 500px;
+    /* Larghezza massima controllata */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Assicuriamoci che il bottone non sia troppo largo su desktop */
+.btn-wedding {
+    /* Le regole precedenti vanno bene, ma puoi forzare una larghezza minima se vuoi */
+    min-width: 280px;
+}
+
+.wb-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+/* Etichetta: Font "Architects Daughter" (mano) */
+.wb-label {
+    font-family: var(--font-hand);
+    font-size: 0.9rem;
+    color: var(--accent);
+    /* Arancione su sfondo bianco */
+}
+
+/* Valore: Font pulito */
+.wb-value {
+    font-family: var(--font-clean);
+    font-size: 1rem;
+    color: var(--text-main);
+    font-weight: 600;
+    word-break: break-all;
+    /* Per IBAN su mobile */
+}
+
+.wb-mono {
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+/* Tasto Copia */
+.wb-copy {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.wb-copy:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.wb-copy svg {
+    width: 20px;
+    height: 20px;
+}
+
+.wb-copy.white {
+    color: white;
+}
+
+.wb-copy.white:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- NUOVO RSVP STYLE (MATCH BANK MODULE) --- */
+
+.wedding-rsvp-section {
+    padding: 4rem 0;
+    /* Usa lo sfondo chiaro per continuità */
+    background-color: var(--bg-color);
+}
+
+/* Griglia per mettere i campi affiancati */
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* IL CONTENITORE INPUT (La "Card") */
+.wedding-input-card,
+.wedding-check-card {
+    background-color: white;
+    border: 1px solid rgba(97, 20, 8, 0.15);
+    /* Marrone leggero */
+    border-radius: 12px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 15px;
+    /* Spazio verticale tra le righe singole */
+}
+
+/* Effetto Focus: Quando clicchi, il bordo diventa Arancione */
+.wedding-input-card:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(240, 129, 74, 0.1);
+}
+
+/* L'Etichetta (Font a mano) */
+.wic-label {
+    font-family: var(--font-hand);
+    font-size: 0.9rem;
+    color: var(--accent);
+    /* Arancione */
+    margin-bottom: 2px;
+}
+
+/* Il Campo di Input vero e proprio */
+.wic-input {
+    border: none;
+    background: transparent;
+    font-family: var(--font-clean);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    padding: 5px 0;
+    width: 100%;
+    outline: none;
+    /* Rimuoviamo il bordo blu standard */
+    font-weight: 500;
+}
+
+.wic-input::placeholder {
+    color: #ccc;
+    font-weight: 300;
+}
+
+/* Stile specifico per la Select */
+.wic-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23611408%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 top 50%;
+    background-size: 12px auto;
+    appearance: none;
+    /* Nasconde la freccia nativa */
+    padding-right: 20px;
+}
+
+/* --- RADIO BUTTONS STILIZZATI (SI/NO) --- */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.radio-option {
+    cursor: pointer;
+    flex: 1;
+    /* Occupano lo stesso spazio */
+}
+
+/* Nascondiamo il pallino nativo brutto */
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+/* Creiamo il nostro bottone "Chip" */
+.radio-chip {
+    display: block;
+    text-align: center;
+    padding: 6px 0;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    color: #999;
+    font-family: var(--font-clean);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+/* Stato Selezionato */
+.radio-option input[type="radio"]:checked+.radio-chip {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    font-weight: 600;
+}
+
+/* --- GOOGLE MAPS STYLE --- */
+
+/* Forza l'altezza del contenitore mappa */
+.visual-box.map-container {
+    height: 400px;
+    /* Altezza fissa su Desktop */
+    width: 100%;
+    overflow: hidden;
+    /* Assicura che i bordi arrotondati taglino la mappa */
+    padding: 0;
+    /* Rimuove eventuali padding interni */
+}
+
+.visual-box.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* Applichiamo un filtro seppia leggero per integrarlo meglio coi colori caldi del sito */
+    filter: sepia(20%) contrast(90%);
+}
+
+/* Su Mobile riduciamo un po' l'altezza */
+@media (max-width: 768px) {
+    .visual-box.map-container {
+        height: 300px;
+        /* Altezza su Mobile */
+        margin-bottom: 30px;
+        /* Spazio sotto prima del testo */
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+        /* Una colonna su mobile */
+        gap: 0;
+    }
+}
+
+/* --- 1. POSIZIONAMENTO SVG INTRO (Statico) --- */
+
+/* La sezione diventa il riferimento per il posizionamento assoluto */
+#sec-intro {
+    position: relative;
+    overflow: hidden;
+    /* Taglia l'SVG se sborda */
+}
+
+/* Il contenitore dell'SVG copre interamente la sezione */
+/* --- SVG INTRO: POSIZIONAMENTO, SCALA E ANIMAZIONE --- */
+
+/* --- SVG INTRO: SCROLL DRIVEN --- */
+
+#svg-cloud-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+#svg-cloud-wrapper svg {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+
+    /* Manteniamo la dimensione ridotta */
+    transform: scale(1);
+    transform-origin: center center;
+    overflow: visible;
+}
+
+/* GRUPPI INTERNI (Stati iniziali) */
+#nuv-sx1,
+#nuv-sx2,
+#nuv-dx1,
+#nuv-dx2 {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.1s linear;
+    /* Movimento fluido ma reattivo */
+    will-change: transform;
+}
+
+
+
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+
+    p {
+        font-size: 0.95rem;
+        /* Leggermente più piccolo del default (solito 1rem o 1.1rem) */
+        line-height: 1.45;
+        /* Interlinea più stretta (default solitamente 1.6) */
+        margin-bottom: 12px;
+        /* Meno spazio tra un paragrafo e l'altro */
+    }
+
+    /* 2. Titoli H2 (Kathmandu, Educazione, ecc.): Meno invadenti */
+    h2 {
+        font-size: 2.2rem;
+        /* Ridotto per stare su una o due righe max */
+        line-height: 1.1;
+        /* Titoli molto compatti */
+        margin-bottom: 10px;
+    }
+
+    .hand-note {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+
+    /* 4. Liste puntate (Ostello/Aiuti): Molto più compatte */
+    ul.styled-list li {
+        font-size: 0.95rem;
+        line-height: 1.35;
+        /* Interlinea stretta per le liste */
+        margin-bottom: 6px;
+        /* Meno spazio tra i punti */
+    }
+
+    /* 5. Riduce un po' il padding laterale per dare più spazio al testo */
+    .container-limit {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #sec-intro {
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden
+    }
+
+    .grid-reverse .text-col {
+        order: 2;
+    }
+
+    .grid-reverse .visual-box {
+        order: 2;
+    }
+
+    .names-text {
+        font-size: 14vw;
+        white-space: nowrap;
+    }
+
+    .sync-header {
+        transform-origin: top center !important;
+        width: 100% !important;
+        transition: margin-top 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    }
+
+    .header-hidden {
+        /* Margine negativo sufficiente a portarlo fuori dallo schermo */
+        margin-top: -150px;
+        /* Opzionale: abbassiamo l'opacità per renderlo più morbido */
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .grid-split {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .visual-box {
+        height: 40vh;
+        order: -1;
+        margin-bottom: 20px;
+    }
+
+    .content-container {
+        /* Anche su mobile lo facciamo entrare prima */
+        top: 150vh;
+    }
+
+    .container-limit {
+        padding: 0 20px;
+        /* Margine di sicurezza destro/sinistro */
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    .side-nav {
+        display: block !important;
+        top: auto;
+        right: auto;
+        transform: none;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        background-color: rgba(190, 190, 190, 0.301);
+        padding: 10px 20px;
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .side-nav ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .side-nav ul::before {
+        display: none;
+    }
+
+    .side-nav li {
+        width: 15px;
+        height: 15px;
+    }
+
+    .nav-dot {
+        width: 8px;
+        height: 8px;
+        box-shadow: none;
+    }
+
+    .side-nav li.active .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .side-nav li.active::after {
+        width: 20px;
+        height: 20px;
+        border-width: 1px;
+    }
+
+    .side-nav li::before {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .diet-options {
+        grid-template-columns: 1fr;
+    }
+
+    .rsvp-container {
+        padding: 20px;
+    }
+
+    .bank-card {
+        padding: 12px 15px;
+    }
+
+    .bank-value {
+        font-size: 1rem;
+    }
+
+
+
+    /* Selezioniamo specificamente il box dentro la sezione Monviso */
+    #sec-monviso .visual-box {
+        /* 1. Allarghiamo il box oltre i limiti del contenitore */
+        width: calc(100% + 40px);
+        /* 100% + i 20px di sinistra + 20px di destra */
+
+        /* 2. Tiriamo il box a sinistra per centrarlo e coprire il padding */
+        margin-left: -20px;
+        margin-right: -20px;
+
+        /* 3. Rimuoviamo eventuali bordi arrotondati per un look "taglio netto" */
+        border-radius: 0;
+
+        /* 4. Opzionale: Se vuoi che sia leggermente più alto su mobile */
+        height: 50vh;
+    }
+
+    /* Assicuriamoci che l'SVG dentro si adatti perfettamente */
+    #monviso-box svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        /* Rimuove spazietto fantasma sotto gli SVG */
+    }
+
+    .wedding-rsvp-section {
+        /* Aumentiamo drasticamente lo spazio sotto */
+        /* Prima era circa 4rem, lo portiamo a 8rem o più */
+        padding-bottom: 150px !important;
+    }
+
+}

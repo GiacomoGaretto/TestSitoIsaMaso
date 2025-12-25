@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrea & Isabella - La Storia</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Architects+Daughter&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav id="side-nav" class="side-nav">
+        <ul></ul>
+    </nav>
+
+    <div class="layer-cream">
+        <div class="sync-header" id="header-cream">
+            <div class="names-text">ISABELLA <span class="separator">&</span> ANDREA</div>
+            <div class="date-subtitle">13 GIUGNO 2026</div>
+        </div>
+        <div class="scroll-cta" id="cta-arrow" onclick="startStory()">
+            <div class="cta-circle"><i class="arrow-icon"></i></div>
+        </div>
+    </div>
+
+    <div class="layer-orange" id="layer-orange"></div>
+
+    <div class="logo-layer" id="logo-layer">
+        <div class="sync-header" id="header-orange">
+            <div class="names-text">ISABELLA <span class="separator">&</span> ANDREA</div>
+        </div>
+    </div>
+
+    <div class="scroll-track"></div>
+
+    <div class="content-container">
+        <div class="story-content" id="story-content">
+
+            <section class="track-section theme-dark" id="sec-intro" data-title="Benvenuti">
+
+                <div id="svg-cloud-wrapper" data-src="images/nuvole.svg"></div>
+
+                <div class="container-limit reveal-block"
+                    style="text-align: center; max-width: 800px; position: relative; z-index: 10;">
+                    <span class="hand-note" style="font-size: 2.5rem;">Benvenuti nel nostro sogno</span>
+                    <p style="font-size: 1.6rem;">
+                        Per il nostro matrimonio abbiamo deciso di trasformare il vostro regalo in mattoni, libri e
+                        futuro.
+                    </p>
+                </div>
+            </section>
+
+            <section class="track-section theme-dark" id="sec-monviso" data-title="Monviso">
+                <div class="container-limit">
+                    <div class="grid-split">
+                        <div class="text-col">
+                            <span class="hand-note">Tutto inizia qui...</span>
+                            <h2>MONVISO, 2640m</h2>
+                            <p>Dopo la proposta, abbiamo deciso di fare una camminata fino al rifugio Quintino Sella.
+                                Lì,
+                                tra le nuvole e la roccia, abbiamo conosciuto <strong>Lakpa Temba</strong>.</p>
+                            <p>Parlando con lui siamo rimasti affascinati dalla sua missione.</p>
+                        </div>
+                        <div class="visual-box" id="monviso-box"></div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="track-section theme-light" id="sec-incontro" data-title="L'Incontro">
+                <div class="container-limit">
+                    <div class="grid-split">
+                        <div class="visual-box reveal-block">
+                            <img src="https://sevensummittreks.com/uploads/team/lakpa-temba-sherpa-bqdbxxfqzvfl35pqwvknceemd31bqofp9zmxgl3u-FVo5fHJfUC3t1d5APPeqCkp4htpJVwJsOaszYQ7i.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder Nepal">
+                        </div>
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note">Un incontro inaspettato</span>
+                            <h2>IL RIFUGIO</h2>
+                            <p>
+                                Al rifugio abbiamo incontrato Lakpa Temba, sherpa che da anni si reca in Italia per
+                                lavorare durante la stagione estiva.<br>
+                                Lakpa, insieme alla moglie Dolma ed al cognato Cchomba, furono tra i primi a prestare
+                                soccorso ai villaggi del basso Khumbu dopo il terremoto dell'aprile 2015 che devastò il
+                                Nepal.
+                            </p>
+                            <p>
+                                È parte del team della <a href="https://monvisonepalfoundation.org/" target="_blank"
+                                    class="text-link">Monviso Nepal Foundation</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="track-section theme-dark" id="sec-sguardo" data-title="Il Racconto">
+                <div class="container-limit">
+                    <div class="grid-split grid-reverse">
+                        <div class="visual-box reveal-block">
+                            <img src="https://images.ctfassets.net/m5us57n7qfgl/6Qrk909ussBUJ1u6VeEY1P/5fc53940f88f2514a103226598d4ac7a/stupa-everest-nepal-getty.jpg?w=1200&h=630&fm=jpg&q=70&f=center"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder Bambini">
+                        </div>
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note">Uno sguardo verso il Nepal</span>
+                            <h2>EDUCAZIONE</h2>
+                            <p>
+                                Lakpa racconta del lavoro della Monviso Nepal Foundation: un’organizzazione non profit
+                                che opera nel nord-est del Nepal, nel distretto del Solukhumbu, per sostenere
+                                istruzione, salute e sviluppo rurale.
+                            </p>
+                            <p>
+                                L’obiettivo è semplice e potente: incoraggiare le famiglie a garantire ai propri figli
+                                un’educazione di qualità.
+                            </p>
+                            <p><strong>Perché il futuro, spesso, nasce da una scuola.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="track-section theme-light" id="sec-sogno" data-title="Il Sogno">
+                <div class="container-limit">
+                    <div class="grid-split">
+                        <div class="visual-box reveal-block">
+                            <img src="https://images.unsplash.com/photo-1508922180028-2b04f7670737?q=80&w=2000&auto=format&fit=crop"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder Montagna">
+                        </div>
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note">Sognare di fare la propria parte</span>
+                            <h2>VICINO A CASA</h2>
+                            <p>
+                                Quel racconto ci è rimasto impresso anche dopo la discesa. Inizia così un sogno
+                                silenzioso:
+                                poter contribuire, in qualche modo, a quel progetto lontano ma improvvisamente vicino.
+                            </p>
+                            <p>
+                                Cercando informazioni, abbiamo scoperto che la Monviso Nepal Foundation collabora con
+                                una realtà
+                                italiana, nata a pochi chilometri da casa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="track-section theme-dark" id="sec-cecy" data-title="Cecy Onlus">
+                <div class="container-limit">
+                    <div class="grid-split grid-reverse">
+                        <div class="visual-box reveal-block">
+                            <img src="https://www.cecyonlus.org/wp-content/uploads/2015/11/logo_trasparent_512x512.png"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder Ponte/Mani">
+                        </div>
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note">Un ponte tra Saluzzo e il Nepal</span>
+                            <h2><a href="https://www.cecyonlus.org/" target="_blank"
+                                    style="color:white; text-decoration:none; border-bottom: 2px solid white;">CECY
+                                    ONLUS</a></h2>
+                            <p>
+                                La collaborazione passa attraverso Cecy Onlus. Un’associazione nata dal dolore di una
+                                perdita, trasformato nel desiderio di fare qualcosa di concreto per il popolo nepalese.
+                            </p>
+                            <p>
+                                I progetti di Cecy nascono sempre da due condizioni precise: la conoscenza diretta delle
+                                persone e un bisogno espresso dalla comunità locale.
+                            </p>
+                            <p class="hand-note" style="font-size: 1.4rem; margin-top: 10px;">Nulla viene imposto. Tutto
+                                viene condiviso.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="track-section theme-light" id="sec-progetto" data-title="Il Progetto">
+                <div class="container-limit">
+                    <div class="grid-split">
+                        <div class="visual-box reveal-block map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56365.17621376829!2d86.55042239322668!3d27.50596323116345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e96c3d1864177d%3A0x664947f6d497e7a7!2sSalleri%2C%20Nepal!5e0!3m2!1sit!2sit!4v1703000000000!5m2!1sit!2sit"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note">Un progetto che nasce dal Nepal</span>
+                            <h2>OSTELLO FEMMINILE</h2>
+                            <p>
+                                Abbiamo organizzato un incontro con Paolo, uno dei fondatori di Cecy, che ci ha
+                                raccontato un progetto speciale.
+                                Un’idea nata direttamente in Nepal, da chi vive quei territori ogni giorno.
+                            </p>
+                            <p>
+                                Nel basso Solukhumbu molte ragazze non possono continuare gli studi: le scuole superiori
+                                sono solo a Salleri e senza un alloggio sicuro, studiare diventa impossibile.
+                            </p>
+                            <p>Da qui nasce il progetto di un <strong>ostello–college femminile</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="track-section theme-dark" id="sec-dettagli" data-title="Il Futuro">
+                <div class="container-limit">
+                    <div class="grid-split grid-reverse">
+                        <div class="visual-box reveal-block">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2000&auto=format&fit=crop"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Placeholder Studio">
+                        </div>
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note">Casa, studio e futuro</span>
+                            <h2>COSA OFFRIREMO</h2>
+                            <p>L’ostello offrirà alle ragazze provenienti dai villaggi rurali:</p>
+                            <ul class="styled-list">
+                                <li>Un alloggio sicuro</li>
+                                <li>Una cucina condivisa</li>
+                                <li>Uno spazio per studiare</li>
+                            </ul>
+                            <p>
+                                Un luogo che permetta di completare la scuola superiore e, quando possibile, accedere
+                                all’università. Un passo concreto per ridurre l’abbandono scolastico, i matrimoni
+                                precoci e aprire nuove possibilità di autonomia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="track-section theme-light" id="sec-aiuto" data-title="Il Tuo Aiuto">
+                <div class="container-limit">
+
+                    <div class="grid-split">
+                        <div class="visual-box reveal-block">
+                            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=2000&auto=format&fit=crop"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Dono">
+                        </div>
+
+                        <div class="text-col reveal-block delay-200">
+                            <span class="hand-note" style="color: var(--accent);">Il nostro regalo più grande</span>
+                            <h2>AIUTACI A REALIZZARLO</h2>
+                            <p>
+                                Ogni dono ricevuto per il nostro matrimonio verrà destinato alla realizzazione
+                                dell’ostello–college femminile a Salleri.
+                            </p>
+                            <p>Nel concreto, il tuo contributo aiuterà a:</p>
+                            <ul class="styled-list">
+                                <li>Rendere disponibili posti letto sicuri per le ragazze provenienti dai villaggi
+                                    rurali</li>
+                                <li>Sostenere i costi di vitto e gestione quotidiana della struttura</li>
+                                <li>Garantire spazi per lo studio e materiali scolastici</li>
+                                <li>Permettere a più ragazze di continuare gli studi, invece di doverli abbandonare</li>
+                            </ul>
+                            <p style="font-weight: bold; margin-top: 20px;">
+                                Un gesto semplice, che si trasforma in tempo, opportunità e futuro.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bank-full-row reveal-block delay-200">
+
+                        <button id="btn-toggle-bank" class="btn-wedding">
+                            Mostra coordinate bancarie
+                        </button>
+
+                        <div id="bank-details-container" class="bank-drawer centered-drawer">
+
+                            <div class="wedding-bank-card">
+                                <div class="wb-info">
+                                    <span class="wb-label">Beneficiario</span>
+                                    <span class="wb-value" id="val-beneficiario">Cecy Onlus</span>
+                                </div>
+                                <button class="wb-copy" onclick="copyToClipboard('val-beneficiario', this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="wedding-bank-card">
+                                <div class="wb-info">
+                                    <span class="wb-label">IBAN</span>
+                                    <span class="wb-value wb-mono" id="val-iban">IT00 X000 0000 0000 0000 0000
+                                        000</span>
+                                </div>
+                                <button class="wb-copy" onclick="copyToClipboard('val-iban', this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="wedding-bank-card highlight">
+                                <div class="wb-info">
+                                    <span class="wb-label" style="color: white;">Causale</span>
+                                    <span class="wb-value" id="val-causale" style="color: white;">Regalo di nozze Andrea
+                                        e Isabella</span>
+                                </div>
+                                <button class="wb-copy white" onclick="copyToClipboard('val-causale', this)">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+
+
+        <section class="wedding-rsvp-section theme-light" id="rsvp">
+            <div class="container-limit" style="max-width: 800px;">
+
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <span class="hand-note" style="color: var(--accent); font-size: 2.5rem;">Rispondeteci, s'il vous
+                        plaît</span>
+                    <h2 style="color: var(--text-main);">SARAI DEI NOSTRI?</h2>
+                </div>
+
+                <form id="rsvp-form" name="submit-to-google-sheet">
+
+                    <div class="form-grid-2">
+                        <div class="wedding-input-card">
+                            <label class="wic-label">Nome</label>
+                            <input type="text" name="Nome" required placeholder="Mario" class="wic-input">
+                        </div>
+                        <div class="wedding-input-card">
+                            <label class="wic-label">Cognome</label>
+                            <input type="text" name="Cognome" required placeholder="Rossi" class="wic-input">
+                        </div>
+                    </div>
+
+                    <div class="wedding-input-card">
+                        <label class="wic-label">Email</label>
+                        <input type="email" name="Email" required placeholder="mario.rossi@email.com" class="wic-input">
+                    </div>
+
+                    <div class="wedding-input-card">
+                        <label class="wic-label">Parteciperai?</label>
+                        <select name="Partecipazione" required class="wic-input wic-select">
+                            <option value="" disabled selected>Seleziona una risposta...</option>
+                            <option value="Si">Assolutamente SÌ! 🎉</option>
+                            <option value="No">Purtroppo non potrò esserci 😢</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="wedding-check-card">
+                            <span class="wic-label">Sei Vegetariano?</span>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="Vegetariano" value="Si">
+                                    <span class="radio-chip">Sì</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="Vegetariano" value="No" checked>
+                                    <span class="radio-chip">No</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="wedding-check-card">
+                            <span class="wic-label">Sei Vegano?</span>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="Vegano" value="Si">
+                                    <span class="radio-chip">Sì</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="Vegano" value="No" checked>
+                                    <span class="radio-chip">No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wedding-input-card">
+                        <label class="wic-label">Intolleranze o Allergie?</label>
+                        <textarea name="Allergie" rows="2" placeholder="Nessuna (oppure scrivi qui...)"
+                            class="wic-input"></textarea>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button type="submit" id="btn-submit" class="btn-wedding"
+                            style="width: 100%; max-width: 100%; font-size: 2rem; padding: 12px;">
+                            CONFERMA PRESENZA
+                        </button>
+                    </div>
+
+                    <p id="form-message"
+                        style="text-align: center; margin-top: 15px; font-family: var(--font-hand); color: var(--accent); font-size: 1.2rem; min-height: 25px;">
+                    </p>
+
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
